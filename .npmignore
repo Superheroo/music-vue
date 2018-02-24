@@ -1,0 +1,10 @@
+node_modules
+dist
+.project
+.sass-cache
+.settings
+.idea
+.git
+.gitignore
+.DS_Store
+.init_lock

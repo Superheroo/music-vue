@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import "reset";
+
+body{
+  text-align: center;
+  img{
+    width: 50%;
+    max-width: 500px;
+  }
+  img,h1{
+    margin-top: 40px;
+  }
+}
