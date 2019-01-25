@@ -97,7 +97,6 @@ const topList_data = {
     needNewCode: 1,
     platform: "h5",
 }
-
 //排行榜 榜单 需要加 topid
 let topList_cp_data = {
     g_tk: 1928093487,
@@ -112,7 +111,19 @@ let topList_cp_data = {
     type: "top",
     platform: "h5",
 }
-
+// 最新音乐请求
+let newMusic_data = {
+    format: "json",
+    loginUin: 0,
+    hostUin: 0,
+    g_tk: 5381,
+    inCharset: 'utf-8',
+    outCharset: 'utf-8',
+    notice: 0,
+    platform: "h5",
+    needNewCode: 0,
+    topid:27
+}
 //请求地址
 const req_API = {
     //首页
@@ -129,6 +140,8 @@ const req_API = {
     topList: "https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg",
     //榜单
     toplist_cp: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg",
+    // 最新音乐
+    new_music:"https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg"
 }
 
 //请求首页接口
@@ -160,10 +173,23 @@ function getSongList(id) {
     songList_data.disstid = id;
     return new Promise((resolve, reject) => {
         axios.get(param(req_API.songList, songList_data)).then((res) => {
-            console.log(res)
+            // console.log(res)
             return resolve(res.data)
         })
     })
+    // return new Promise((resolve,reject) => {
+    //     jsonp(
+    //         param(req_API.songList,songList_data), 
+    //         {
+    //             param: "jsonpCallback",
+    //             prefix: "jp"
+    //         },
+    //         function(err, res) {
+    //             console.log(res)
+    //             return resolve(res);
+    //         }
+    //     )
+    // })
 
 }
 //请求排行榜
@@ -210,12 +236,32 @@ function getHotMenu() {
         })
     })
 }
+// 最新音乐
+function getNewMusic(){
+    //	jsonp( url,opts,fun )		链接地址，参数，回调
+    //	把promise承诺对象返回到调用函数的外部
+    return new Promise((resolve, reject) => {
+        //执行异步操作（请求） 
+        //prama函数用来拼接链接地址的（地址，json键值对）
+        jsonp(
+            param(req_API.new_music,newMusic_data), //url
+            {
+                param: 'jsonpCallback',
+                prefix: 'jp' //opts
+            },
+            function(err, res) { //回调
+                //回调函数（错误，返回结果）
+                //返回成功的结果（resolve）
+                return resolve(res);
+            }
+        )
+    })
+}
 /**
  * 给url拼接参数
  * url     地址
  * data    参数，以json键值对形式
  */
-
 function param(url, data) {
     url += (url.indexOf('?') < 0 ? '?' : '&');
     var p = "";
@@ -233,6 +279,7 @@ let api = {
     getSongList: getSongList,
     getHotMenu: getHotMenu,
     getTopList: getTopList,
-    getToplist_cp:getToplist_cp
+    getToplist_cp:getToplist_cp,
+    getNewMusic:getNewMusic
 }
 export default api;

@@ -47,7 +47,8 @@ export default {
         let id = this.$route.query.id;
         console.log(id)
         api.getSongList(id).then((res) => {
-            console.log(res)
+            var resObj=jQuery.parseJSON(result);
+            console.log(resObj)
             this.cdlist = res.cdlist[0];
             //把歌曲id存到一个数组内
             this.songIdList = res.cdlist[0].songlist.map(function(item, index) {

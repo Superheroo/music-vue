@@ -10,7 +10,7 @@
                 </form>
             </div>
             <div class="navbar">
-                <router-link to="/recommend_music">推荐音乐
+                <router-link to="/new_music">最新音乐
                 </router-link>
                 <router-link to="/hot_music">排行榜
                 </router-link>
@@ -18,17 +18,15 @@
                 </router-link>
             </div>
         </div>
-        <transition name="left">
+        <!-- <transition name="left"> -->
             <router-view></router-view>
-        </transition>
+        <!-- </transition> -->
     </div>
 </template>
 <script>
 export default {
     data: function() {
         return {
-            
-
         }
     },
     methods: {

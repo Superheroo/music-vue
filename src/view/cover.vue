@@ -1,10 +1,12 @@
 <template>
-	<div id="recommend_music">
+	<div id="cover">
 
 		<div id="Carousel">
 			<mt-swipe :auto="4000">
 				<mt-swipe-item v-for="item in carousel">
+					<a :href="item.linkUrl">
 					<img :src="item.picUrl"/>
+					</a>
 				</mt-swipe-item>
 			</mt-swipe>
 		</div>
@@ -16,7 +18,6 @@
 				<p>{{item.Ftitle}}</p>
 			</li>
 		</ul>
-
 		<p>推荐歌单</p>
 		<ul>
 			<li class="home_li" v-for="(item,index) in songList" @click="goToList(item.id)">
@@ -31,7 +32,6 @@
 		</ul>
 	</div>
 </template>
-
 <script>
 	//引入api.js 包括请求地址，参数和方法
 	import api from "../js/api.js";
@@ -64,6 +64,9 @@
 						id: id
 					}
 				})
+			},
+			bannerCover:function(){
+
 			}
 		}
 	}

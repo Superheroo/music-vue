@@ -7,18 +7,19 @@ Vue.use(Router);
 //import home from "../view/home.vue";
 import index from "../view/index.vue";
 import List from "../view/list.vue";
-import recommend_music from "../view/recommend_music.vue";
+import cover from "../view/cover.vue";
+import new_music from "../view/new_music.vue";
 import hot_music from "../view/hot_music.vue";
 import song_menu from "../view/song_menu.vue";
 import toplist from "../view/toplist.vue";
 //
 let routes = [{
         path: "/",
-        component: recommend_music
+        component: cover
     },
     {
-        path: "/recommend_music",
-        component: recommend_music
+        path: "/new_music",
+        component: new_music
     },
     {
         path: "/hot_music",

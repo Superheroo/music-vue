@@ -194,13 +194,15 @@ var proConfig = merge(baseConfig, {
 /*****根据命令名称，区分开发和生产环境******/
 /*****通过命令名称，以指定模式运行******/
 if(process.env['npm_lifecycle_event'].trim() === 'dev') {
-	console.log("*********BGG神教，一统江湖...**********");
-	console.log("*********当前是开发dev模式**********");
-	console.log("*********合作请联系蓝景技术QQ:920756154**********");
+	console.log("*********梁颖聪**********");
+	console.log("********来瓶红牛，决战到天亮***********");
+	console.log("*********吃了夜宵你好意思不通宵？**********");
+	console.log("*********运营的走开，不要跟我说需求**********");
 	module.exports = devConfig;
 } else {
-	console.log("*********BGG神教，一统江湖**********");
-	console.log("*********当前是生产pro模式**********");
-	console.log("*********合作请联系蓝景技术QQ:920756154**********");
+	console.log("*********梁颖聪**********");
+	console.log("********来瓶红牛，决战到天亮***********");
+	console.log("*********吃了夜宵你好意思不通宵？**********");
+	console.log("*********运营的走开，不要跟我说需求**********");
 	module.exports = proConfig;
 }
